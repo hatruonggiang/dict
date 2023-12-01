@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="510.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group7.AdditionController">
+    <children>
+        <Pane layoutX="3.0" prefHeight="91.0" prefWidth="764.0" styleClass="header" stylesheets="@Utils/style.css">
+            <children>
+            <Pane layoutX="316.0" layoutY="20.0" />
+            </children>
+        </Pane>
+        <AnchorPane layoutY="91.0" prefHeight="421.0" prefWidth="769.0">
+            <children>
+                <Pane layoutX="2.0" layoutY="-80.0" prefHeight="74.0" prefWidth="764.0" styleClass="title" stylesheets="">
+               <children>
+                        <Label alignment="CENTER" layoutX="27.0" layoutY="15.0" prefHeight="45.0" prefWidth="710.0" text="Add word" textFill="#c67abb">
+                            <font>
+                                <Font name="System Bold Italic" size="18.0" />
+                            </font>
+                        </Label>
+               </children>
+                </Pane>
+                <Label alignment="CENTER" layoutX="31.0" layoutY="55.0" prefHeight="26.0" prefWidth="710.0" text="English" textFill="#9f45b0">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="wordTargetInput" layoutX="31.0" layoutY="85.0" prefHeight="33.0" prefWidth="710.0" promptText="Nhập từ tiếng anh..." styleClass="english-word-input" stylesheets="@Utils/style.css" />
+                <Label alignment="CENTER" layoutX="30.0" layoutY="125.0" prefHeight="26.0" prefWidth="710.0" text="Meaning" textFill="#9f45b0">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="explanationInput" layoutX="31.0" layoutY="155.0" prefHeight="200.0" prefWidth="710.0" promptText="Nhập giải nghĩa của từ...." styleClass="meaning-input" stylesheets="@Utils/style.css" wrapText="true" />
+                <Button fx:id="addBtn" layoutX="31.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleClickAddBtn" prefHeight="32.0" prefWidth="224.0" styleClass="add-button" stylesheets="@Utils/style.css" text="Thêm " />
+            <Label fx:id="successAlert" alignment="CENTER" layoutX="467.0" layoutY="362.0" prefHeight="32.0" prefWidth="273.0" styleClass="success-alert" stylesheets="@Utils/style.css" text="Thành công" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
