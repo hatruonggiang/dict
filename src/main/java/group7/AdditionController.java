@@ -123,7 +123,7 @@ public class AdditionController extends Dictionary implements Initializable {
 	private void showSuccessAlert() {
 		successAlert.setVisible(true);
 		// automatic hide success alert
-		dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 1000);
+		dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 100);
 	}
 
 }

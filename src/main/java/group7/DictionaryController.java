@@ -2,10 +2,13 @@ package group7;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class DictionaryController {
 
@@ -29,8 +32,14 @@ public class DictionaryController {
         showSub("/group7/game.fxml");
     }
 
+    public void EApp(ActionEvent event) {
+        System.exit(0);
+    }
+
     @FXML
     private AnchorPane container;
+    @FXML
+    private Button closeBtn;
 
     protected void setNode(Node node) {
         container.getChildren().clear();

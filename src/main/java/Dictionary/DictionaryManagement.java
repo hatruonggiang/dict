@@ -72,7 +72,7 @@ public class DictionaryManagement {
 		try {
 			List<String> results = trie.autoComplete(key);
 			if (results != null) {
-				int length = Math.min(results.size(), 15);
+				int length = Math.min(results.size(), 30);
 				for (int i = 0; i < length; i++) {
 					list.add(results.get(i));
 				}

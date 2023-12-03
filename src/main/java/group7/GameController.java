@@ -157,23 +157,6 @@ public class GameController {
         winCheck();
     }
 
-    protected void tip() {
-        List<Integer> unguessedIndices = new ArrayList<>();
-
-        for (int i = 0; i < guessedWord.length(); i++) {
-            if (guessedWord.charAt(i) == '-') {
-                unguessedIndices.add(i);
-            }
-        }
-
-        if (!unguessedIndices.isEmpty()) {
-            randomLetter = unguessedIndices.get(new Random().nextInt(unguessedIndices.size()));
-            updateGuessedWord(String.valueOf(mysteryWord.charAt(randomLetter)));
-            outText.setText(guessedWord);
-        }
-        winCheck();
-    }
-
     @FXML
     protected void ResetGame() {
         isLoaded = false;

@@ -104,7 +104,7 @@
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Utils/icons/icons8_search_24px.png" />
+                              <Image url="@Utils/icons/search.png" />
                            </image>
                         </ImageView>
                         <TextField fx:id="searchTerm" layoutX="34.0" layoutY="10.0" prefHeight="20.0" prefWidth="214.0" promptText="Search English...." styleClass="search-field" stylesheets="@Utils/style.css" />

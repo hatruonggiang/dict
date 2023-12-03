@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="530.0" prefWidth="831.0" styleClass="root" stylesheets="@Utils/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group7.DictionaryController">
    <children>
-      <Button fx:id="closeBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="469.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@Utils/style.css" text="Exit">
+      <Button onAction="#EApp" fx:id="closeBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="469.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="exit-button" stylesheets="@Utils/style.css" text="Exit">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -19,7 +19,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="searchWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="170.0" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@Utils/style.css" text="     Search">
+      <Button fx:id="searchWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="170.0" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@Utils/style.css" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -56,7 +56,7 @@
             <Tooltip fx:id="tooltip2" text="Add new word" />
          </tooltip>
       </Button>
-      <Button fx:id="translateBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTranslation" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@Utils/style.css" text="    Translate">
+      <Button fx:id="translateBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchToTranslation" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@Utils/style.css" text="Translate">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -76,12 +76,15 @@
       </Button>
       <AnchorPane fx:id="container" layoutX="52.0" layoutY="9.0" prefHeight="510.0" prefWidth="769.0" styleClass="container">
          
-            <ImageView fitHeight="519.0" fitWidth="753.0" layoutX="38.0" pickOnBounds="true" preserveRatio="true">
+      </AnchorPane>
+      <Button alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="45.0" prefWidth="45.0" text="game" stylesheets="@Utils/style.css" styleClass="menu-item" >
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Utils/images/image_1.jpg" />
+                  <Image url="@Utils/icons/icons8-game-50-2.png" />
                </image>
             </ImageView>
-      </AnchorPane>
-      <Button layoutX="3.0" layoutY="388.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="26.0" prefWidth="46.0" text="game" />
+         </graphic>    
+      </Button>
    </children>
 </AnchorPane>

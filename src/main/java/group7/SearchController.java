@@ -6,6 +6,8 @@ import Dictionary.DictionaryManagement;
 
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
+
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +23,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -117,6 +120,7 @@ public class SearchController implements Initializable {
             explanation.setEditable(false);
             saveBtn.setVisible(false);
         }
+        handleClickSoundBtn();
     }
 
     @FXML
@@ -191,7 +195,7 @@ public class SearchController implements Initializable {
 
     private void setListDefault(int index) {
         list.clear();
-        for (int i = index; i < index + 10; i++) {
+        for (int i = index; i < index + 30; i++) {
             list.add(dictionary.get(i).getWordTarget());
         }
         listResults.setItems(list);
