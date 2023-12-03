@@ -14,6 +14,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import Dictionary.TranslatorAPI;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,6 +29,8 @@ public class TranslationController implements Initializable {
     private String toLanguage = "vi";
     private boolean isToVietnameseLang = true;
 
+    // true:eng->viet
+    // false:viet->eng
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         translateBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -56,46 +60,32 @@ public class TranslationController implements Initializable {
     }
 
     @FXML
-
     private void handleOnClickTranslateBtn() throws IOException {
-        String rootAPI = "https://clients5.google.com/translate_a/t?client=dict-chrome-ex&"
-                + "sl=" + sourceLanguage
-                + "&tl=" + toLanguage
-                + "&dt=t&q=";
-        String srcText = sourceLangField.getText();
-        String urlString = rootAPI + srcText;
-        urlString = urlString.replace(" ", "%20");
+        String input = sourceLangField.getText();
 
-        // create connection
-        URL url = new URL(urlString);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.addRequestProperty("User-Agent",
-                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
-        // set get request
-        con.setRequestMethod("GET");
-        int status = con.getResponseCode();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String line;
-        StringBuilder content = new StringBuilder();
-        while ((line = in.readLine()) != null) {
-            content.append(line);
-        }
-        // disconnect
-        in.close();
-        con.disconnect();
+        TranslatorAPI task;
 
-        // handle json data
-        JSONParser jsonParse = new JSONParser();
-        try {
-            JSONObject data = (JSONObject) jsonParse.parse(content.toString());
-            JSONArray sentences = (JSONArray) data.get("sentences");
-            JSONObject jsonObject = (JSONObject) sentences.get(0);
-            String trans = (String) jsonObject.get("trans");
-            toLangField.setText(trans);
-        } catch (Exception e) {
-            System.out.println(e);
+        if (isToVietnameseLang == true) {
+            task = new TranslatorAPI("en", "vi", input);
+        } else {
+            task = new TranslatorAPI("vi", "en", input);
         }
+
+        task.setOnSucceeded(event -> {
+            toLangField.setText(task.getValue());
+
+        });
+
+        task.setOnRunning(event -> {
+            toLangField.setText("Translating...");
+
+        });
+
+        task.setOnFailed(event -> {
+            toLangField.setText("Cannot translate this sentence");
+
+        });
+        new Thread(task).start();
     }
 
     @FXML
@@ -113,6 +103,9 @@ public class TranslationController implements Initializable {
             sourceLanguage = "en";
             toLanguage = "vi";
         }
+        String swap = toLangField.getText();
+        toLangField.setText(sourceLangField.getText());
+        sourceLangField.setText(swap);
         isToVietnameseLang = !isToVietnameseLang;
     }
 

@@ -25,6 +25,11 @@ public class DictionaryController {
     }
 
     @FXML
+    private void switchToGame() throws IOException {
+        showSub("/group7/game.fxml");
+    }
+
+    @FXML
     private AnchorPane container;
 
     protected void setNode(Node node) {

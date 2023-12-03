@@ -1,9 +1,9 @@
 package group7;
 
 import Alerts.Alerts;
-import DictionaryCommandLine.Dictionary;
-import DictionaryCommandLine.DictionaryManagement;
-import DictionaryCommandLine.Word;
+import Dictionary.Dictionary;
+import Dictionary.DictionaryManagement;
+import Dictionary.Word;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -82,8 +82,8 @@ public class AdditionController extends Dictionary implements Initializable {
 								"Thay thế hoặc bổ sung nghĩa vừa nhập cho nghĩa cũ.");
 				// custom button
 				selectionAlert.getButtonTypes().clear();
-				ButtonType replaceBtn = new ButtonType("Thay thế");
-				ButtonType insertBtn = new ButtonType("Bổ sung");
+				ButtonType replaceBtn = new ButtonType("replace");
+				ButtonType insertBtn = new ButtonType("insert");
 				selectionAlert.getButtonTypes().addAll(replaceBtn, insertBtn, ButtonType.CANCEL);
 				Optional<ButtonType> selection = selectionAlert.showAndWait();
 
@@ -94,7 +94,7 @@ public class AdditionController extends Dictionary implements Initializable {
 				}
 				if (selection.get() == insertBtn) {
 					String oldMeaning = dictionary.get(indexOfWord).getWordExplain();
-					dictionary.get(indexOfWord).setWordExplain(oldMeaning + "\n=" + meaning);
+					dictionary.get(indexOfWord).setWordExplain(oldMeaning + "\n-" + meaning);
 					dictionaryManagement.exportToFile(dictionary, path);
 					showSuccessAlert();
 				}
@@ -123,7 +123,7 @@ public class AdditionController extends Dictionary implements Initializable {
 	private void showSuccessAlert() {
 		successAlert.setVisible(true);
 		// automatic hide success alert
-		dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 1500);
+		dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 1000);
 	}
 
 }

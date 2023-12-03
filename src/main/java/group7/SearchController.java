@@ -1,8 +1,9 @@
 package group7;
 
 import Alerts.Alerts;
-import DictionaryCommandLine.Dictionary;
-import DictionaryCommandLine.DictionaryManagement;
+import Dictionary.Dictionary;
+import Dictionary.DictionaryManagement;
+
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 import javafx.collections.FXCollections;
@@ -53,11 +54,13 @@ public class SearchController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // get data for dictionary from data.txt file
         dictionaryManagement.insertFromFile(dictionary, path);
-        // System.out.println(dictionary.size());
+
         // set data for trie
         dictionaryManagement.setTrie(dictionary);
+
         // set initial word list and definition
         setListDefault(0);
+
         // when user types in search field
         searchTerm.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
@@ -188,7 +191,7 @@ public class SearchController implements Initializable {
 
     private void setListDefault(int index) {
         list.clear();
-        for (int i = index; i < index + 100; i++) {
+        for (int i = index; i < index + 10; i++) {
             list.add(dictionary.get(i).getWordTarget());
         }
         listResults.setItems(list);

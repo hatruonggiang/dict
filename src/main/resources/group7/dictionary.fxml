@@ -82,5 +82,6 @@
                </image>
             </ImageView>
       </AnchorPane>
+      <Button layoutX="3.0" layoutY="388.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="26.0" prefWidth="46.0" text="game" />
    </children>
 </AnchorPane>
