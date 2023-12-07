@@ -12,9 +12,18 @@ import javafx.collections.ObservableList;
 public class DictionaryManagement {
 	private Trie trie = new Trie();
 
-	/**
-	 * Insert from text file use BufferedReader
-	 */
+	// insert dictionary to trie
+	public void setTrie(Dictionary dictionary) {
+		try {
+			for (Word word : dictionary) {
+				trie.insert(word.getWordTarget());
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Something went wrong: " + e);
+		}
+	}
+
+	// đọc dữ liệu từ file và ghi nó vào 1 dictionary dạng ArrayList<word>
 	public void insertFromFile(Dictionary dictionary, String path) {
 		try {
 			FileReader fileReader = new FileReader(path);
@@ -49,6 +58,7 @@ public class DictionaryManagement {
 		}
 	}
 
+	// đẩy dữ liệu từ 1 dictionary vào 1 file txt
 	public void exportToFile(Dictionary dictionary, String path) {
 		try {
 			FileWriter fileWriter = new FileWriter(path);
@@ -64,9 +74,7 @@ public class DictionaryManagement {
 		}
 	}
 
-	/**
-	 * using trie algorithm for search prefix
-	 */
+	// trả về 1 list các từ có khả năng đang tra nhất
 	public ObservableList<String> lookupWord(Dictionary dictionary, String key) {
 		ObservableList<String> list = FXCollections.observableArrayList();
 		try {
@@ -83,10 +91,7 @@ public class DictionaryManagement {
 		return list;
 	}
 
-	/**
-	 * search for a word by BinarySearch
-	 * time complexity: O(logN)
-	 */
+	// tìm kiếm bằng binarySearch
 	public int searchWord(Dictionary dictionary, String keyword) {
 		try {
 			dictionary.sort(new SortDictionaryByWord());
@@ -111,6 +116,7 @@ public class DictionaryManagement {
 		return -1;
 	}
 
+	// cập nhật nghĩa trong dictionary xong thì ghi nó vào file
 	public void updateWord(Dictionary dictionary, int index, String meaning, String path) {
 		try {
 			dictionary.get(index).setWordExplain(meaning);
@@ -120,6 +126,7 @@ public class DictionaryManagement {
 		}
 	}
 
+	// xóa từ vựng, tạo trie mới,ghi lại file
 	public void deleteWord(Dictionary dictionary, int index, String path) {
 		try {
 			dictionary.remove(index);
@@ -131,6 +138,7 @@ public class DictionaryManagement {
 		}
 	}
 
+	// ghi từ theo đúng định dạng: | english \n nghĩa
 	public void addWord(Word word, String path) {
 		try (FileWriter fileWriter = new FileWriter(path, true);
 				BufferedWriter buf = new BufferedWriter(fileWriter)) {
@@ -155,14 +163,4 @@ public class DictionaryManagement {
 		}).start();
 	}
 
-	// insert dictionary to trie
-	public void setTrie(Dictionary dictionary) {
-		try {
-			for (Word word : dictionary) {
-				trie.insert(word.getWordTarget());
-			}
-		} catch (NullPointerException e) {
-			System.out.println("Something went wrong: " + e);
-		}
-	}
 }

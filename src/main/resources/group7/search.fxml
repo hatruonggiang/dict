@@ -39,7 +39,7 @@
                                  <graphic>
                                     <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@Utils/icons/icons8_speaker_64px.png" />
+                                          <Image url="@Utils/icons/volume.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -51,7 +51,7 @@
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" styleClass="editBtn">
                                        <image>
-                                          <Image url="@Utils/icons/icons8_edit_property_64px.png" />
+                                          <Image url="@Utils/icons/rewrite.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -63,7 +63,7 @@
                                  <graphic>
                                     <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@Utils/icons/icons8_delete_bin_64px.png" />
+                                          <Image url="@Utils/icons/delete.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

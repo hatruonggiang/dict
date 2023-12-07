@@ -251,6 +251,9 @@
     -fx-background-radius: 0 0 7 0;
     -fx-border-radius: 0 0 7 0;
 }
+.label_game{
+    -fx-border-color: #6f72bd;
+}
 .switch-button{
     -fx-background-color: transparent;
 }
@@ -281,3 +284,250 @@
     -fx-pref-width: 200px;
     -fx-pref-height: 50px;
 }
+.quiz-label {
+    -fx-font-family: 'Bellota', Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-border-color: #000000;
+    -fx-border-radius: 0px;
+ }
+ 
+ .quiz-label:hover {
+     -fx-border-color: black;
+     -fx-border-width: 1 1 1 1;
+     -fx-background-color: trưparent;
+     -fx-scale-x: 1.05;
+     -fx-scale-y: 1.05;
+ }
+ .quiz-label {
+    -fx-font-family:  Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-border-color: #000000;
+    -fx-border-radius: 0px;
+ }
+ 
+ .quiz-label:hover {
+     -fx-border-color: black;
+     -fx-border-width: 1 1 1 1;
+     -fx-background-color: transparent;
+     -fx-scale-x: 1.05;
+     -fx-scale-y: 1.05;
+ }
+ /* .label {
+    -fx-font-family: 'Bellota', Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-padding: 10px;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+} */
+ 
+
+/* .button:hover {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+} */
+
+/* .button:pressed {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: #f6f6f6;
+} */
+
+/* .button-big {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Select Bold 700;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-style: solid;
+    -fx-pref-width: 180;
+    -fx-pref-height: 50;
+}
+
+.button-small {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Regular 400;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-style: solid;
+    -fx-pref-width: 80;
+} */
+
+/* .text-area {
+    -fx-font-family: 'Bellota', Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+
+    -fx-padding: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+} */
+
+/* .text-area:focused {
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-faint-focus-color: transparent;
+} */
+
+/* .text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-pref-width: 1;
+    -fx-opacity: 0;
+}
+.text-area .scroll-bar:horizontal {
+    -fx-pref-height: 1;
+    -fx-opacity: 0;
+} */
+
+/* .label {
+    -fx-font-family: 'Bellota', Sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-padding: 10px;
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+} */
+/* 
+.quiz-label {
+   -fx-font-family: 'Bellota', Sans-serif;
+   -fx-font-size: 16px;
+   -fx-text-fill: black;
+   -fx-border-color: #000000;
+   -fx-border-radius: 0px;
+}
+
+.quiz-label:hover {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.text-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', Bold 700;
+    -fx-font-weight: bold;
+    -fx-font-size: 27px;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.text-normal {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-family: 'Bellota', sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.border-pane {
+    -fx-background-image: url('../image/butterfly-2.png'), url('../image/butterfly-3.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.h-box {
+    -fx-alignment: center;
+}
+
+.stack-pane {
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+}
+
+.root {
+    -fx-background-color: transparent;
+}
+
+.scrollbar:vertical {
+    -fx-background-color: transparent;
+    -fx-border-radius: 6px;
+}
+
+.card-button {
+    -fx-background-image: url('../image/card.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-radius: 10px;
+}
+
+.card-button:hover {
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+.card-button:pressed {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.label-borderless {
+    -fx-font-family: 'Bellota', Bold 700;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+    -fx-alignment: center;
+}
+
+.label-borderless-big {
+    -fx-font-family: 'Bellota', Bold 700;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Bellota', Sans-serif;
+    -fx-font-size: 14px;
+
+    -fx-padding: 3px;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-pref-width: 1;
+    -fx-opacity: 0;
+}
+
+.choice-box {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+

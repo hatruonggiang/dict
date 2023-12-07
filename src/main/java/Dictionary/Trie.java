@@ -28,7 +28,8 @@ public class Trie {
 		children.put(character, new Trie(s));
 	}
 
-	// method for inserting a new diagnosis
+	// thêm chuỗi diagnosis vào cấu trúc dữ liệu Trie, duyệt qua từng kí tự của
+	// diagnosis cho tới khi chưa có trong Trie thì bắt đầu thêm vào
 	public void insert(String diagnosis) {
 		if (diagnosis == null) {
 			throw new IllegalArgumentException("Null diagnoses entries are not valid.");
@@ -43,6 +44,7 @@ public class Trie {
 		node.terminal = true;
 	}
 
+	// tìm kiếm tất cả các từ trong Trie có tiền tố là prefix
 	public List<String> autoComplete(String prefix) {
 		Trie Trienode = this;
 		for (char c : prefix.toCharArray()) {
@@ -54,6 +56,8 @@ public class Trie {
 		return Trienode.allPrefixes();
 	}
 
+	// trả về tất cả các từ có tiền tố từ node Trie hiện tại xuống dưới trong cây
+	// Trie
 	protected List<String> allPrefixes() {
 		List<String> diagnosisresults = new ArrayList<String>();
 		if (this.terminal) {

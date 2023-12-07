@@ -11,6 +11,9 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class TranslatorAPI extends Task<String> {
+    private final String langFrom;
+    private final String langTo;
+    private final String text;
 
     public TranslatorAPI(String langFrom, String langTo, String text) {
         this.langFrom = langFrom;
@@ -18,20 +21,7 @@ public class TranslatorAPI extends Task<String> {
         this.text = text;
     }
 
-    private final String langFrom;
-    private final String langTo;
-    private final String text;
-
-    /**
-     * Translate text from `langFrom` to `langTo`.
-     *
-     * <p>
-     * <a
-     * href=
-     * "https://stackoverflow.com/questions/8147284/how-to-use-google-translate-api-in-my-java-application">Reference</a>
-     */
-    public String translate()
-            throws IOException {
+    public String translate() throws IOException {
         String urlStr = "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
                 + "?q="
                 + URLEncoder.encode(text, StandardCharsets.UTF_8)

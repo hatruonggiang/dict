@@ -7,15 +7,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="769.0" stylesheets="@Utils/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group7.GameController">
+<AnchorPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="769.0" stylesheets="@Utils/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group7.HangmanController">
    <children>
       <Pane prefHeight="500.0" prefWidth="750.0" stylesheets="@Utils/style.css">
          <children>
-            <Label fx:id="lifes" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="30.0" prefHeight="50.0" prefWidth="200.0" styleClass="src-speech-field" text="lifes" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="lifes" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="50.0" layoutY="30.0" prefHeight="50.0" prefWidth="200.0" styleClass="label_game" text="lifes" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Bookman Old Style" size="18.0" />
                </font>
             </Label>
+            <Label fx:id="used" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="492.0" styleClass="label_game" text="Used letters:" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                   <Font size="20.0" />
+               </font>
+           </Label>
             <Label fx:id="outText" alignment="CENTER" layoutX="50.0" layoutY="200.0" prefHeight="60.0" prefWidth="665.0" text="Type a letter">
                <font>
                   <Font name="Bookman Old Style" size="18.0" />
@@ -32,12 +37,13 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="debugging" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="371.0" prefHeight="62.0" prefWidth="665.0" styleClass="src-speech-field" stylesheets="@Utils/style.css" text="Type a letter" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="debugging" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="371.0" prefHeight="62.0" prefWidth="665.0" styleClass="label_game" stylesheets="@Utils/style.css" text="Type a letter" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="resetButton" layoutX="491.0" layoutY="30.0" mnemonicParsing="false" onAction="#ResetGame" styleClass="reset-button" stylesheets="@Utils/style.css" text="Reset Game" />
+            <Button fx:id="resetButton" layoutX="600.0" layoutY="75.0" mnemonicParsing="false" onAction="#ResetGame" prefWidth="116.0" styleClass="add-button" stylesheets="@Utils/style.css" text="Play Again" />
+            <Button fx:id="quiz" layoutX="600.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#quiz" styleClass="add-button" stylesheets="@Utils/style.css" text="Quiz" />
          </children>
       </Pane>
       <Button fx:id="infoButton" alignment="CENTER" layoutX="100.0" layoutY="20.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" text="?" visible="false" />

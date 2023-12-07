@@ -1,6 +1,6 @@
 package group7;
 
-import Alerts.Alerts;
+import Dictionary.Alerts;
 import Dictionary.Dictionary;
 import Dictionary.DictionaryManagement;
 import Dictionary.Word;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdditionController extends Dictionary implements Initializable {
+public class AdditionController extends DictionaryController implements Initializable {
 	@FXML
 	private Button addBtn;
 	@FXML
@@ -23,10 +23,7 @@ public class AdditionController extends Dictionary implements Initializable {
 	private TextArea explanationInput;
 	@FXML
 	private Label successAlert;
-	private Dictionary dictionary = new Dictionary();
-	private DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
-	private final String path = "dict/src/main/resources/group7/Utils/data.txt";
 	// Alerts
 	private Alerts alerts = new Alerts();
 
@@ -123,7 +120,7 @@ public class AdditionController extends Dictionary implements Initializable {
 	private void showSuccessAlert() {
 		successAlert.setVisible(true);
 		// automatic hide success alert
-		dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 100);
+		// dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 100);
 	}
 
 }

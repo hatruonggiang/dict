@@ -18,9 +18,14 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static void main(String[] args) {
+        launch();
+    }
+
     private static Scene scene;
 
     @Override
+
     public void start(Stage stage) throws Exception {
         // Load the dictionary.fxml
         FXMLLoader dictionaryLoader = new FXMLLoader(getClass().getResource("dictionary.fxml"));
@@ -41,10 +46,6 @@ public class App extends Application {
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 
 }

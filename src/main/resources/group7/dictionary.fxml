@@ -14,7 +14,7 @@
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Utils/icons/icons8_exit_32px.png" />
+                  <Image url="@Utils/icons/exit.png" />
                </image>
             </ImageView>
          </graphic>
@@ -27,7 +27,7 @@
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <!-- gay -->
-                  <Image url="@Utils/icons/icons8_search_24px.png" /> 
+                  <Image url="@Utils/icons/search.png" /> 
                </image>
             </ImageView>
          </graphic>
@@ -45,7 +45,7 @@
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Utils/icons/icons8_add_32px.png" />
+                  <Image url="@Utils/icons/add.png" />
                </image>
             </ImageView>
          </graphic>
@@ -81,7 +81,7 @@
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Utils/icons/icons8-game-50-2.png" />
+                  <Image url="@Utils/icons/game.png" />
                </image>
             </ImageView>
          </graphic>    

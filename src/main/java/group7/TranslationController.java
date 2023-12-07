@@ -23,7 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TranslationController implements Initializable {
+public class TranslationController extends DictionaryController implements Initializable {
 
     private String sourceLanguage = "en";
     private String toLanguage = "vi";
@@ -77,12 +77,12 @@ public class TranslationController implements Initializable {
         });
 
         task.setOnRunning(event -> {
-            toLangField.setText("Translating...");
+            toLangField.setText("Translating, wait a second...");
 
         });
 
         task.setOnFailed(event -> {
-            toLangField.setText("Cannot translate this sentence");
+            toLangField.setText("Cannot translate this sentence, check your internet");
 
         });
         new Thread(task).start();

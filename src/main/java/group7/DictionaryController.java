@@ -2,6 +2,8 @@ package group7;
 
 import java.io.IOException;
 
+import Dictionary.Dictionary;
+import Dictionary.DictionaryManagement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class DictionaryController {
+    public Dictionary dictionary = new Dictionary();
+    public DictionaryManagement dictionaryManagement = new DictionaryManagement();
+    public final String path = "dict/src/main/resources/group7/Utils/data.txt";
 
     @FXML
     private void switchToSearch() throws IOException {
@@ -32,7 +37,8 @@ public class DictionaryController {
         showSub("/group7/game.fxml");
     }
 
-    public void EApp(ActionEvent event) {
+    @FXML
+    public void EApp() throws IOException {
         System.exit(0);
     }
 

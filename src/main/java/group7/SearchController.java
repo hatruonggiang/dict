@@ -1,6 +1,6 @@
 package group7;
 
-import Alerts.Alerts;
+import Dictionary.Alerts;
 import Dictionary.Dictionary;
 import Dictionary.DictionaryManagement;
 
@@ -27,7 +27,7 @@ import java.time.Duration;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class SearchController implements Initializable {
+public class SearchController extends DictionaryController implements Initializable {
     // FXML elements
     @FXML
     private TextField searchTerm;
@@ -41,9 +41,6 @@ public class SearchController implements Initializable {
     private ListView<String> listResults;
     @FXML
     private Pane headerOfExplanation;
-    private Dictionary dictionary = new Dictionary();
-    private DictionaryManagement dictionaryManagement = new DictionaryManagement();
-    private final String path = "dict/src/main/resources/group7/Utils/data.txt";
     // list for listView
     ObservableList<String> list = FXCollections.observableArrayList();
     // alerts
@@ -87,17 +84,20 @@ public class SearchController implements Initializable {
     // click search button
     @FXML
     private void handleOnKeyTyped() {
+        // Xóa nội dung danh sách
         list.clear();
+        // Lấy và làm sạch chuỗi tìm kiếm
         String searchKey = searchTerm.getText().trim();
+        // Tìm kiếm từ vựng dựa trên chuỗi tìm kiếm
         list = dictionaryManagement.lookupWord(dictionary, searchKey);
+        // Kiểm tra nếu danh sách kết quả tìm kiếm rỗng
         if (list.isEmpty()) {
-
+            // Đặt lại danh sách mặc định
             setListDefault(firstIndexOfListFound);
         } else {
-
-            // headerList.setText("Kết quả");
+            // Hiển thị danh sách kết quả tìm kiếm
             listResults.setItems(list);
-            // set the first index of list found
+            // Đặt chỉ số đầu tiên của danh sách kết quả
             firstIndexOfListFound = dictionaryManagement.searchWord(dictionary, list.get(0));
         }
     }
@@ -105,16 +105,20 @@ public class SearchController implements Initializable {
     // click a word in word list is found
     @FXML
     private void handleMouseClickAWord(MouseEvent arg0) {
-        // search binary
+        // Lấy từ vựng được chọn từ danh sách kết quả
         String selectedWord = listResults.getSelectionModel().getSelectedItem();
+        // Kiểm tra xem từ vựng được chọn có khác null hay không
         if (selectedWord != null) {
+            // Tìm kiếm chỉ số của từ vựng trong từ điển
             indexOfSelectedWord = dictionaryManagement.searchWord(dictionary, selectedWord);
+            // Kiểm tra xem từ vựng có tồn tại trong từ điển không
             if (indexOfSelectedWord == -1) {
                 return;
             }
+            // Hiển thị thông tin về từ vựng được chọn
             englishWord.setText(dictionary.get(indexOfSelectedWord).getWordTarget());
             explanation.setText(dictionary.get(indexOfSelectedWord).getWordExplain());
-            // update status
+            // Cập nhật trạng thái giao diện
             headerOfExplanation.setVisible(true);
             explanation.setVisible(true);
             explanation.setEditable(false);
@@ -125,19 +129,25 @@ public class SearchController implements Initializable {
 
     @FXML
     private void handleClickEditBtn() {
-        // update status
+        // Cập nhật trạng thái cho phép chỉnh sửa
         explanation.setEditable(true);
+        // Hiển thị nút lưu và thông báo cho người dùng
         saveBtn.setVisible(true);
         alerts.showAlertInfo("Information", "Bạn đã cho phép chỉnh sửa nghĩa từ này!");
     }
 
     @FXML
     private void handleClickSoundBtn() {
+        // Thiết lập thuộc tính voices cho FreeTTS, sử dụng giọng đọc "kevin16"
         System.setProperty("freetts.voices",
                 "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        // Lấy đối tượng Voice từ VoiceManager, sử dụng giọng đọc "kevin16"
         Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        // Kiểm tra xem giọng đọc có tồn tại hay không
         if (voice != null) {
+            // Cấp phát giọng đọc
             voice.allocate();
+            // Phát âm từ vựng của từ được chọn từ từ điển
             voice.speak(dictionary.get(indexOfSelectedWord).getWordTarget());
         } else {
             throw new IllegalStateException("Cannot find voice: kevin16");
@@ -148,16 +158,18 @@ public class SearchController implements Initializable {
     private void handleClickSaveBtn() {
         Alert alertConfirmation = alerts.alertConfirmation("Update",
                 "Bạn chắc chắn muốn cập nhật nghĩa từ này ?");
-        // option != null.
+        // Lấy lựa chọn từ người dùng (OK hoặc Cancel)
         Optional<ButtonType> option = alertConfirmation.showAndWait();
         if (option.get() == ButtonType.OK) {
+            // Thực hiện cập nhật từ trong từ điển
             dictionaryManagement.updateWord(dictionary, indexOfSelectedWord, explanation.getText(), path);
-            // successfully
+            // Hiển thị thông báo cập nhật thành công
             alerts.showAlertInfo("Information", "Cập nhập thành công!");
         } else {
+            // Hiển thị thông báo thất bại nếu người dùng chọn Cancel
             alerts.showAlertInfo("Information", "Thay đổi không được công nhận!");
         }
-        // update status
+        // Cập nhật trạng thái giao diện sau khi lưu
         saveBtn.setVisible(false);
         explanation.setEditable(false);
     }
@@ -165,17 +177,18 @@ public class SearchController implements Initializable {
     @FXML
     private void handleClickDeleteBtn() {
         Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xóa từ này?");
-        // option != null.
         alertWarning.getButtonTypes().add(ButtonType.CANCEL);
+        // Lấy lựa chọn từ người dùng (OK hoặc Cancel)
         Optional<ButtonType> option = alertWarning.showAndWait();
         if (option.get() == ButtonType.OK) {
-            // delete selected word from dictionary
+            // Xóa từ đã chọn từ từ điển
             dictionaryManagement.deleteWord(dictionary, indexOfSelectedWord, path);
-            // refresh everything after deleting word
+            // Làm mới mọi thứ sau khi xóa từ
             refreshAfterDeleting();
-            // successfully
+            // Hiển thị thông báo xóa thành công
             alerts.showAlertInfo("Information", "Xóa thành công");
         } else {
+            // Hiển thị thông báo thất bại nếu người dùng chọn Cancel
             alerts.showAlertInfo("Information", "Thay đổi không được công nhận");
         }
     }
@@ -188,7 +201,7 @@ public class SearchController implements Initializable {
             }
         }
         listResults.setItems(list);
-        // update status
+        // Cập nhật trạng thái giao diện sau khi xóa
         headerOfExplanation.setVisible(false);
         explanation.setVisible(false);
     }
